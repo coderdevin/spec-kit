@@ -406,9 +406,29 @@ def init_git_repo(project_path: Path, quiet: bool = False) -> bool:
     finally:
         os.chdir(original_cwd)
 
+def _resolve_template_repo() -> Tuple[str, str]:
+    """Return (owner, name) for the template repository.
+
+    Allows overriding via SPECIFY_TEMPLATE_REPO (format: owner/name). Defaults
+    to coderdevin/spec-kit for this distribution, falling back to the provided
+    owner with "spec-kit" as repository name when only the owner is supplied.
+    """
+
+    repo_spec = os.getenv("SPECIFY_TEMPLATE_REPO", "coderdevin/spec-kit").strip()
+    if not repo_spec:
+        return "coderdevin", "spec-kit"
+
+    if "/" in repo_spec:
+        owner, name = repo_spec.split("/", 1)
+        owner = owner.strip() or "coderdevin"
+        name = name.strip() or "spec-kit"
+        return owner, name
+
+    return repo_spec, "spec-kit"
+
+
 def download_template_from_github(ai_assistant: str, download_dir: Path, *, script_type: str = "sh", verbose: bool = True, show_progress: bool = True, client: httpx.Client = None, debug: bool = False, github_token: str = None) -> Tuple[Path, dict]:
-    repo_owner = "github"
-    repo_name = "spec-kit"
+    repo_owner, repo_name = _resolve_template_repo()
     if client is None:
         client = httpx.Client(verify=ssl_context)
 
