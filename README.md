@@ -234,6 +234,7 @@ Additional commands for enhanced quality and validation:
 | `/speckit.analyze`   | Cross-artifact consistency & coverage analysis (run after `/speckit.tasks`, before `/speckit.implement`) |
 | `/speckit.checklist` | Generate custom quality checklists that validate requirements completeness, clarity, and consistency (like "unit tests for English") |
 | `/speckit.discussion` | Orchestrate collaborative technical discussion with 8 legendary tech experts to analyze code, architecture, and design decisions through multiple expert perspectives |
+| `/speckit.codereview` | Orchestrate comprehensive code review with 8 specialized code review experts to analyze code quality, design patterns, and best practices |
 
 ### Environment Variables
 
@@ -598,6 +599,52 @@ The command will:
 5. Assess engineering feasibility and implementation complexity
 
 This is a consultation-only command—it analyzes and recommends but does not modify files unless explicitly requested.
+
+### OPTIONAL: Comprehensive Code Review with Expert Panel
+
+When you need thorough code quality assessment, you can use the `/speckit.codereview` command to get comprehensive analysis from 8 specialized code review experts.
+
+The codereview command orchestrates analysis from 8 specialized code review experts:
+- **Coding Standards Expert** - Code style, naming conventions, formatting standards
+- **Function Review Expert** - Function design, method signatures, parameter design
+- **Class Design Expert** - Object-oriented design, SOLID principles, class structure
+- **Exception Handling Expert** - Exception strategies, error management, robustness
+- **Testing Expert** - Unit testing, test coverage, testability design
+- **Architecture Design Expert** - System architecture, design patterns, module partitioning
+- **Performance & Database Expert** - Performance optimization, database operations, resource management
+- **Common Library Expert** - Common components, utility classes, code reuse
+
+**When to use `/speckit.codereview`:**
+
+- **Pull Request Review**: Get comprehensive feedback before merging code changes
+- **Code Quality Audit**: Assess overall code quality and identify technical debt
+- **Refactoring Assessment**: Evaluate refactoring opportunities and priorities
+- **Best Practices Validation**: Ensure code follows industry standards and best practices
+- **Design Pattern Review**: Analyze design pattern usage and architectural decisions
+- **Performance Analysis**: Identify performance bottlenecks and optimization opportunities
+
+**Example usage:**
+
+```text
+/speckit.codereview Review the UserService class in src/services/user-service.ts. 
+Focus on error handling, database query optimization, and testability. 
+Provide prioritized recommendations for improvement.
+```
+
+The command will:
+1. Analyze the code from all 8 expert perspectives simultaneously
+2. Provide detailed issue identification with code locations and context
+3. Offer specific improvement recommendations with code examples
+4. Facilitate a round-table discussion highlighting consensus and trade-offs
+5. Deliver a comprehensive review report with prioritized, actionable recommendations
+6. Assess code quality across multiple dimensions with quantitative scoring
+
+**Priority System:**
+- **High Priority**: Issues that must be fixed immediately (security, correctness, critical bugs)
+- **Medium Priority**: Issues recommended to be fixed (maintainability, code quality)
+- **Low Priority**: Optional optimization suggestions (nice-to-have improvements)
+
+This is a review-only command—it analyzes and recommends but does not modify files unless explicitly requested.
 
 </details>
 

@@ -153,6 +153,27 @@ The discussion command provides:
 - Comprehensive solution report with actionable recommendations
 - Engineering feasibility and implementation complexity assessment
 
+### `/speckit.codereview`
+
+Orchestrate comprehensive code review with 8 specialized code review experts to analyze code quality, design patterns, and best practices. Use when you need thorough code quality assessment.
+
+**Example usage:**
+
+```text
+/speckit.codereview Review the UserService class in src/services/user-service.ts. 
+Focus on error handling, database query optimization, and testability. 
+Provide prioritized recommendations for improvement.
+```
+
+The codereview command provides:
+- Analysis from 8 specialized code review experts simultaneously
+- Detailed issue identification with code locations and context
+- Specific improvement recommendations with code examples
+- Expert round-table discussion highlighting consensus and trade-offs
+- Comprehensive review report with prioritized, actionable recommendations
+- Code quality assessment across multiple dimensions with quantitative scoring
+- Priority system: High (must fix), Medium (should fix), Low (optional optimization)
+
 ## Key Principles
 
 - **Be explicit** about what you're building and why

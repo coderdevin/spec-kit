@@ -13,8 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - New `/speckit.discussion` command template that orchestrates collaborative technical discussion with 8 legendary tech experts (Linus Torvalds, James Gosling, Robert C. Martin, Martin Fowler, Jeff Dean, Werner Vogels, Rod Johnson, Eric Evans) to analyze code, architecture, and design decisions through multiple expert perspectives.
 - Discussion command supports multiple scenarios: Code Review, Architecture Design, Refactoring Review, Performance Optimization, Technology Selection, Bug Root Cause Analysis, and Technical Problem Solving.
-- Enhanced CLI output to display the discussion command in the enhancement commands section.
-- Comprehensive documentation in README for when and how to use the discussion feature.
+- New `/speckit.codereview` command template that orchestrates comprehensive code review with 8 specialized code review experts (Coding Standards, Function Review, Class Design, Exception Handling, Testing, Architecture Design, Performance & Database, Common Library) to analyze code quality, design patterns, and best practices.
+- Code review command provides detailed issue identification, improvement recommendations with code examples, expert round-table discussion, and prioritized actionable recommendations (High/Medium/Low priority).
+- Enhanced CLI output to display both discussion and codereview commands in the enhancement commands section.
+- Comprehensive documentation in README for when and how to use the discussion and codereview features.
 
 ## [0.0.18] - 2025-10-06
 
