@@ -107,6 +107,52 @@ Finally, implement the solution:
 implement specs/002-create-taskify/plan.md
 ```
 
+## Optional Enhancement Commands
+
+At any stage of development, you can use these optional commands to improve quality and confidence:
+
+### `/speckit.clarify`
+
+Ask structured questions to de-risk ambiguous areas before planning. Run before `/speckit.plan` if used.
+
+```text
+/speckit.clarify
+```
+
+### `/speckit.analyze`
+
+Cross-artifact consistency and alignment report. Run after `/speckit.tasks`, before `/speckit.implement`.
+
+```text
+/speckit.analyze
+```
+
+### `/speckit.checklist`
+
+Generate quality checklists to validate requirements completeness, clarity, and consistency. Run after `/speckit.plan`.
+
+```text
+/speckit.checklist
+```
+
+### `/speckit.discussion`
+
+Orchestrate collaborative technical discussion with 8 legendary tech experts to analyze code, architecture, and design decisions. Use at any stage when you need multiple expert perspectives.
+
+**Example usage:**
+
+```text
+/speckit.discussion Review the authentication implementation in auth.ts. 
+Analyze the security approach, scalability considerations, and identify potential vulnerabilities.
+```
+
+The discussion command provides:
+- Analysis from 8 expert perspectives simultaneously
+- Detailed technical assessments with ratings
+- Round-table discussion highlighting consensus and divergent viewpoints
+- Comprehensive solution report with actionable recommendations
+- Engineering feasibility and implementation complexity assessment
+
 ## Key Principles
 
 - **Be explicit** about what you're building and why
@@ -114,6 +160,7 @@ implement specs/002-create-taskify/plan.md
 - **Iterate and refine** your specifications before implementation
 - **Validate** the plan before coding begins
 - **Let the AI agent handle** the implementation details
+- **Use enhancement commands** when you need deeper analysis or validation
 
 ## Next Steps
 

@@ -233,6 +233,7 @@ Additional commands for enhanced quality and validation:
 | `/speckit.clarify`   | Clarify underspecified areas (recommended before `/speckit.plan`; formerly `/quizme`) |
 | `/speckit.analyze`   | Cross-artifact consistency & coverage analysis (run after `/speckit.tasks`, before `/speckit.implement`) |
 | `/speckit.checklist` | Generate custom quality checklists that validate requirements completeness, clarity, and consistency (like "unit tests for English") |
+| `/speckit.discussion` | Orchestrate collaborative technical discussion with 8 legendary tech experts to analyze code, architecture, and design decisions through multiple expert perspectives |
 
 ### Environment Variables
 
@@ -557,6 +558,46 @@ The `/speckit.implement` command will:
 >The AI agent will execute local CLI commands (such as `dotnet`, `npm`, etc.) - make sure you have the required tools installed on your machine.
 
 Once the implementation is complete, test the application and resolve any runtime errors that may not be visible in CLI logs (e.g., browser console errors). You can copy and paste such errors back to your AI agent for resolution.
+
+### OPTIONAL: Technical Discussion with Expert Panel
+
+At any stage of the development process—whether during specification, planning, or implementation—you can leverage the `/speckit.discussion` command to get comprehensive technical analysis from multiple expert perspectives.
+
+The discussion command orchestrates analysis from 8 legendary technical experts:
+- **Linus Torvalds** - System kernel architecture and low-level performance
+- **James Gosling** - Programming language design and JVM architecture
+- **Robert C. Martin (Uncle Bob)** - Clean code principles and software craftsmanship
+- **Martin Fowler** - Enterprise architecture and refactoring strategies
+- **Jeff Dean** - Distributed systems and large-scale performance optimization
+- **Werner Vogels** - Cloud computing architecture and fault tolerance
+- **Rod Johnson** - Framework design and enterprise Java development
+- **Eric Evans** - Domain-driven design and complex business modeling
+
+**When to use `/speckit.discussion`:**
+
+- **Code Review**: Get multi-perspective feedback on implementation quality, design patterns, and potential improvements
+- **Architecture Design**: Evaluate different architectural approaches and get consensus on the best path forward
+- **Performance Optimization**: Analyze bottlenecks and get expert recommendations for performance improvements
+- **Technology Selection**: Compare different technology stacks and frameworks with expert insights
+- **Bug Analysis**: Deep-dive into complex bugs with analysis from multiple technical perspectives
+- **Refactoring Decisions**: Get guidance on refactoring strategies and technical debt management
+
+**Example usage:**
+
+```text
+/speckit.discussion Review the authentication implementation in auth.ts and user-service.ts. 
+Analyze the security approach, scalability considerations, and identify potential vulnerabilities 
+or areas for improvement.
+```
+
+The command will:
+1. Analyze the problem from all 8 expert perspectives simultaneously
+2. Provide detailed technical assessments with ratings
+3. Facilitate a round-table discussion highlighting consensus and divergent viewpoints
+4. Deliver a comprehensive solution report with actionable recommendations
+5. Assess engineering feasibility and implementation complexity
+
+This is a consultation-only command—it analyzes and recommends but does not modify files unless explicitly requested.
 
 </details>
 

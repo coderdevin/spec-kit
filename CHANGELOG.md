@@ -7,6 +7,15 @@ All notable changes to the Specify CLI and templates are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- New `/speckit.discussion` command template that orchestrates collaborative technical discussion with 8 legendary tech experts (Linus Torvalds, James Gosling, Robert C. Martin, Martin Fowler, Jeff Dean, Werner Vogels, Rod Johnson, Eric Evans) to analyze code, architecture, and design decisions through multiple expert perspectives.
+- Discussion command supports multiple scenarios: Code Review, Architecture Design, Refactoring Review, Performance Optimization, Technology Selection, Bug Root Cause Analysis, and Technical Problem Solving.
+- Enhanced CLI output to display the discussion command in the enhancement commands section.
+- Comprehensive documentation in README for when and how to use the discussion feature.
+
 ## [0.0.18] - 2025-10-06
 
 ### Added
