@@ -235,6 +235,7 @@ Additional commands for enhanced quality and validation:
 | `/speckit.checklist` | Generate custom quality checklists that validate requirements completeness, clarity, and consistency (like "unit tests for English") |
 | `/speckit.discussion` | Orchestrate collaborative technical discussion with 8 legendary tech experts to analyze code, architecture, and design decisions through multiple expert perspectives |
 | `/speckit.codereview` | Orchestrate comprehensive code review with 8 specialized code review experts to analyze code quality, design patterns, and best practices |
+| `/speckit.unittest-java` | Generate disciplined method-level JUnit 5 tests with Mockito using an eight-step workflow |
 
 ### Environment Variables
 

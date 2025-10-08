@@ -1056,6 +1056,7 @@ def init(
     steps_lines.append("   2.3 [cyan]/speckit.plan[/] - Create implementation plan")
     steps_lines.append("   2.4 [cyan]/speckit.tasks[/] - Generate actionable tasks")
     steps_lines.append("   2.5 [cyan]/speckit.implement[/] - Execute implementation")
+    steps_lines.append("   2.6 [cyan]/speckit.unittest-java[/] - Generate disciplined JUnit 5 unit tests")
 
     steps_panel = Panel("\n".join(steps_lines), title="Next Steps", border_style="cyan", padding=(1,2))
     console.print()
@@ -1068,7 +1069,8 @@ def init(
         f"○ [cyan]/speckit.analyze[/] [bright_black](optional)[/bright_black] - Cross-artifact consistency & alignment report (after [cyan]/speckit.tasks[/], before [cyan]/speckit.implement[/])",
         f"○ [cyan]/speckit.checklist[/] [bright_black](optional)[/bright_black] - Generate quality checklists to validate requirements completeness, clarity, and consistency (after [cyan]/speckit.plan[/])",
         f"○ [cyan]/speckit.discussion[/] [bright_black](optional)[/bright_black] - Orchestrate collaborative technical discussion with 8 legendary tech experts to analyze code, architecture, and design decisions",
-        f"○ [cyan]/speckit.codereview[/] [bright_black](optional)[/bright_black] - Orchestrate comprehensive code review with 8 specialized code review experts to analyze code quality and best practices"
+        f"○ [cyan]/speckit.codereview[/] [bright_black](optional)[/bright_black] - Orchestrate comprehensive code review with 8 specialized code review experts to analyze code quality and best practices",
+        f"○ [cyan]/speckit.unittest-java[/] [bright_black](optional)[/bright_black] - Generate method-level JUnit 5 tests via an eight-step disciplined workflow"
     ]
     enhancements_panel = Panel("\n".join(enhancement_lines), title="Enhancement Commands", border_style="cyan", padding=(1,2))
     console.print()

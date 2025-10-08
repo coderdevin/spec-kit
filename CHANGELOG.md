@@ -7,11 +7,12 @@ All notable changes to the Specify CLI and templates are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.0.20] - 2025-10-08
+## [0.0.21] - 2025-10-08
 
 ### Changed
 
 - Allow overriding the template download repository via the `SPECIFY_TEMPLATE_REPO` environment variable and default to `coderdevin/spec-kit` so newly added commands are available when initializing projects.
+- Updated CLI onboarding panels and README to include the new `/speckit.unittest-java` command for disciplined JUnit 5 generation.
 
 ## [0.0.19] - 2025-10-08
 
