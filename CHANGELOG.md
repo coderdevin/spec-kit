@@ -7,6 +7,16 @@ All notable changes to the Specify CLI and templates are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.22] - 2025-10-09
+
+### Changed
+
+- **BREAKING**: Renamed `/speckit.api-spec` to `/speckit.api-spec-generator` for clarity of purpose (generates API specifications from requirements).
+- **BREAKING**: Renamed `/speckit.api-spec-review` to `/speckit.api-spec-audit` to better reflect automated quality checking (360-item comprehensive audit checklist).
+- Fixed markdown formatting issues in `api-spec-generator.md` and `api-spec-audit.md` (removed nested code blocks, standardized table formatting).
+- Updated all internal references and documentation to use new command names.
+- Enhanced `api-spec-generator.md` template to align with production-grade API documentation standards, including process steps, business rules, and lifecycle-based pseudo code.
+
 ## [0.0.21] - 2025-10-08
 
 ### Changed
