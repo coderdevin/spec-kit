@@ -7,6 +7,12 @@ All notable changes to the Specify CLI and templates are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.23] - 2025-10-09
+
+### Added
+
+- New `/speckit.job-analysis` command for deep analysis of Python job/task code with comprehensive specification generation including business workflows (Mermaid diagrams), issue detection, status determination logic, performance analysis, and prioritized improvement recommendations.
+
 ## [0.0.22] - 2025-10-09
 
 ### Changed
