@@ -7,6 +7,30 @@ All notable changes to the Specify CLI and templates are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.25] - 2025-10-28
+
+### Fixed
+
+- **CRITICAL**: Fixed missing `speckit.` prefix on all command template files to ensure proper discoverability. All command templates now follow the naming convention `speckit.{command-name}.md` as required by version 0.0.18 standards:
+  - Renamed `codereview-check.md` → `speckit.codereview-check.md`
+  - Renamed `codereview-react.md` → `speckit.codereview-react.md`
+  - Renamed `analyze.md` → `speckit.analyze.md`
+  - Renamed `api-spec-audit.md` → `speckit.api-spec-audit.md`
+  - Renamed `api-spec-generator.md` → `speckit.api-spec-generator.md`
+  - Renamed `checklist.md` → `speckit.checklist.md`
+  - Renamed `clarify.md` → `speckit.clarify.md`
+  - Renamed `codereview.md` → `speckit.codereview.md`
+  - Renamed `constitution.md` → `speckit.constitution.md`
+  - Renamed `discussion.md` → `speckit.discussion.md`
+  - Renamed `implement.md` → `speckit.implement.md`
+  - Renamed `job-analysis.md` → `speckit.job-analysis.md`
+  - Renamed `plan.md` → `speckit.plan.md`
+  - Renamed `specify.md` → `speckit.specify.md`
+  - Renamed `tasks.md` → `speckit.tasks.md`
+  - Renamed `unittest-java.md` → `speckit.unittest-java.md`
+
+This ensures all commands are now accessible via `/speckit.` prefix in AI agents (Cursor, Claude Code, GitHub Copilot, etc.).
+
 ## [0.0.24] - 2025-10-28
 
 ### Added
