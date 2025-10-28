@@ -31,6 +31,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 This ensures all commands are now accessible via `/speckit.` prefix in AI agents (Cursor, Claude Code, GitHub Copilot, etc.).
 
+- Fixed release package script (`.github/workflows/scripts/create-release-packages.sh`) to prevent duplicate `speckit.` prefix in generated command filenames. The script no longer adds an additional `speckit.` prefix since template files already include it.
+
 ## [0.0.24] - 2025-10-28
 
 ### Added
