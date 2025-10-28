@@ -7,6 +7,14 @@ All notable changes to the Specify CLI and templates are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.24] - 2025-10-28
+
+### Added
+
+- New `/speckit.codereview-check` command for validating checked issues from code review reports, discovering similar patterns across the codebase, and generating comprehensive problem analysis documents with concrete solutions.
+- New `/speckit.codereview-react` command for orchestrating comprehensive frontend code review with 6 specialized React and TypeScript experts analyzing component design, hooks, state management, performance, accessibility, and best practices.
+- `.cursorrules` configuration file to optimize Cursor IDE experience by preventing automatic loading of large template files.
+
 ## [0.0.23] - 2025-10-09
 
 ### Added

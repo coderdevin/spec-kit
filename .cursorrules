@@ -1,0 +1,4 @@
+# .cursorrules
+
+# 忽略 templates 目录，防止自动加载大型模板文件消耗 token
+- path: templates/
