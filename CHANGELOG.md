@@ -7,6 +7,24 @@ All notable changes to the Specify CLI and templates are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.26] - 2025-10-28
+
+### Enhanced
+
+- **Frontend Code Review Enhancement**: Significantly improved `/speckit.codereview-react` command with expanded review coverage:
+  - Enhanced expert roles from 6 to cover 10 comprehensive review dimensions
+  - Added Security & Accessibility Expert (Sub Agent 6) combining frontend security vulnerability detection with web accessibility audit
+  - Added Testing Quality & Code Standards Expert (Sub Agent 5) for test coverage, React Testing Library best practices, and clean code principles
+  - Enhanced Performance Expert (Sub Agent 4) to include CSS Architecture & Styling review covering CSS-in-JS, CSS Modules, Tailwind CSS, responsive design, design systems, and animation performance
+  - Expanded Component Architecture Expert (Sub Agent 1) to include testability design, HOC/Render Props patterns, and component API design
+  - Enhanced Hooks Expert (Sub Agent 2) to cover comprehensive state management patterns including Redux/Zustand/Jotai/Recoil, Context API, server vs client state
+  - Enhanced TypeScript Expert (Sub Agent 3) with advanced patterns including conditional/mapped types, discriminated unions, and React-specific types
+  - Added critical "Problematic Code Requirement" rule requiring actual code snippets in all issue identifications with minimum 3-5 lines context
+  - Enhanced priority system to include security vulnerabilities (XSS, injection attacks, exposed secrets) as Critical (P0) items
+  - Streamlined round table discussion format for better actionable insights
+  - Simplified comprehensive review report with clearer score breakdown across 10 dimensions
+  - Updated behavior rules to emphasize evidence-based reviews with mandatory code evidence quality standards
+
 ## [0.0.25] - 2025-10-28
 
 ### Fixed
