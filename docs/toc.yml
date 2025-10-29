@@ -15,3 +15,13 @@
   items:
     - name: Local Development
       href: local-development.md
+
+# Tutorials
+- name: Tutorials
+  items:
+    - name: Code Review Tutorial
+      href: code-review-tutorial.md
+    - name: Code Review Tutorial (中文)
+      href: code-review-tutorial-zh.md
+    - name: Code Review Quick Reference
+      href: code-review-quick-reference.md

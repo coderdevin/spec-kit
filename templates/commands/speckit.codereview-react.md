@@ -66,31 +66,7 @@ Activate all 6 Sub Agents simultaneously in parallel. Each expert analyzes the c
 - Higher-Order Components (HOC) and Render Props patterns
 - Component API design and developer experience
 
-**Review Output Format**:
-```markdown
-## 🎯 Component Architecture & Design Patterns Expert • Component Design Review
-
-**Lead Reviewer**: Component Architecture & Design Patterns Expert
-**Review Philosophy**: "Great components are simple, focused, composable, and easy to test"
-
-### 🔍 Issues Identified
-
-- [ ] **[Issue Category]**: [Specific issue description]
-  - **Code Location**: `[filename:line number]`
-  - **Priority**: [Critical/High/Medium/Low]
-  - **Problematic Code**: ⚠️ **REQUIRED** - Always include the actual code snippet showing the issue
-  ```typescript
-  [Code snippet with sufficient context - minimum 3-5 lines showing the problematic pattern]
-  ```
-  - **Issue Analysis**: [Detailed analysis of the issue and its impact]
-
-### 💡 Improvement Recommendations
-**Recommendation 1**: [Improvement title]
-```typescript
-[Improved code]
-```
-**Improvement Explanation**: [Rationale and expected benefits]
-```
+**Review Output Format**: <Issues Identified Output Example>
 
 #### Sub Agent 2: React Hooks & State Management Expert
 
@@ -118,7 +94,7 @@ Activate all 6 Sub Agents simultaneously in parallel. Each expert analyzes the c
   - Immutability patterns
   - Reducer patterns and complex state logic
 
-**Review Output Format**: Same as Sub Agent 1 template, adapted to hooks and state management perspective
+**Review Output Format**: <Issues Identified Output Example>
 
 #### Sub Agent 3: TypeScript Type System Expert
 
@@ -144,7 +120,7 @@ Activate all 6 Sub Agents simultaneously in parallel. Each expert analyzes the c
 - TypeScript strict mode compliance
 - Type-only imports and exports
 
-**Review Output Format**: Same as Sub Agent 1 template, adapted to TypeScript type system perspective
+**Review Output Format**: <Issues Identified Output Example>
 
 #### Sub Agent 4: Performance Optimization & CSS Architecture Expert
 
@@ -176,7 +152,7 @@ Activate all 6 Sub Agents simultaneously in parallel. Each expert analyzes the c
   - Animation performance (GPU acceleration, will-change)
   - CSS specificity and selector performance
 
-**Review Output Format**: Same as Sub Agent 1 template, adapted to performance and CSS architecture perspective
+**Review Output Format**: <Issues Identified Output Example>
 
 #### Sub Agent 5: Testing Quality & Code Standards Expert
 
@@ -209,7 +185,7 @@ Activate all 6 Sub Agents simultaneously in parallel. Each expert analyzes the c
   - Function length and complexity
   - Code duplication detection
 
-**Review Output Format**: Same as Sub Agent 1 template, adapted to testing quality and code standards perspective
+**Review Output Format**: <Issues Identified Output Example>
 
 #### Sub Agent 6: Security & Accessibility Expert
 
@@ -243,75 +219,26 @@ Activate all 6 Sub Agents simultaneously in parallel. Each expert analyzes the c
   - Alternative text for images and icons
   - Internationalization (i18n) readiness
 
-**Review Output Format**: Same as Sub Agent 1 template, adapted to security and accessibility perspective
+**Review Output Format**: <Issues Identified Output Example>
 
 ### 3. Organize Expert Technical Discussion
 
 After collecting all expert reviews, synthesize key themes and facilitate discussion:
 
 ```markdown
-## 💬 Frontend Code Review Expert Round Table Discussion
+## 💬 Expert Round Table Discussion
 
-**Discussion Facilitator**: Orchestration Agent
-**Key Topics**: [Number] cross-cutting issues requiring multi-expert analysis
+### 📋 [Topic 1]
 
----
+**Key Perspectives**:
+- 🎯 [Expert 1]: [One-line key insight]
+- ⚡ [Expert 2]: [One-line key insight]
+- 🔒 [Expert 3]: [One-line key insight]
 
-### 📋 Discussion Topic 1: [Core Issue Title]
-
-**Issue**: [Brief description of the core issue]  
-**Location**: `[filename:line number]`  
-**Involved Experts**: [List 2-3 most relevant experts with emojis]
-
-**Key Debate Points**:
-- [Expert 1 emoji] [One-line key insight from perspective 1]
-- [Expert 2 emoji] [One-line key insight from perspective 2]
-- [Expert 3 emoji] [One-line key insight from perspective 3]
-
-**💡 Conclusion**: [Synthesized recommendation integrating expert viewpoints]
-
----
-
-### 📋 Discussion Topic 2: [Another Key Issue Title]
-
-**Issue**: [Brief description of the quality concern]  
-**Location**: `[filename:line number]`  
-**Involved Experts**: [List 2-3 most relevant experts with emojis]
-
-**Key Debate Points**:
-- [Expert 1 emoji] [One-line key insight from perspective 1]
-- [Expert 2 emoji] [One-line key insight from perspective 2]
-
-**💡 Conclusion**: [Synthesized recommendation with trade-offs explained]
-
----
-
-*[Add more discussion topics as needed. Focus on issues where expert perspectives intersect or conflict. Typically 2-4 major topics.]*
+*[Add 2-4 discussion topics focusing on issues where expert perspectives intersect or conflict]*
 ```
 
-### 4. Comprehensive Frontend Code Review Report
-
-```markdown
-## 📊 Comprehensive Frontend Code Review Report
-
-### 📈 Overall Assessment
-
-**Overall Code Quality Score**: X/10
-
-**Score Breakdown**:
-- 🎯 Component Architecture & Design Patterns: X/10
-- 🪝 React Hooks & State Management: X/10
-- 📘 TypeScript Type System: X/10
-- ⚡ Performance & CSS Architecture: X/10
-- 🧪 Testing Quality & Code Standards: X/10
-- 🔒 Security & Accessibility: X/10
-
-**Total Issues Found**: X issues (🔴 X Critical | 🟠 X High | 🟡 X Medium | 🟢 X Low)
-
----
-```
-
-### 5. Save Review Report to File
+### 4. Save Review Report to File
 
 After generating the comprehensive review report, save it to a markdown file:
 
@@ -328,50 +255,48 @@ After generating the comprehensive review report, save it to a markdown file:
 
 ---
 
-{Include all 6 expert reviews}
+## 📈 Overall Assessment
+
+**Overall Code Quality Score**: X/10
+
+**Score Breakdown**:
+- 🎯 Component Architecture & Design Patterns: X/10
+- 🪝 React Hooks & State Management: X/10
+- 📘 TypeScript Type System: X/10
+- ⚡ Performance & CSS Architecture: X/10
+- 🧪 Testing Quality & Code Standards: X/10
+- 🔒 Security & Accessibility: X/10
+
+**Total Issues Found**: X issues (🔴 X Critical | 🟠 X High | 🟡 X Medium | 🟢 X Low)
 
 ---
 
-{Include expert round table discussion}
+{Include all 6 expert reviews - Issues Identified only}
 
 ---
 
-{Include comprehensive review report}
-
----
-
-## Review Completion
-**Generated by**: Spec Kit Frontend Code Review System
-**Report File**: {filename}
+{Include expert round table discussion if needed}
 ```
 
 **Implementation**:
 1. Use the `write` tool to create the markdown file at `.specify/reviews/code-review-{name}-{timestamp}.md`
-2. Include all expert reviews, discussions, and comprehensive report
+2. Include all expert reviews and round table discussion (if needed)
 3. Confirm to user that report has been saved with full file path
 
-### 6. Validation & Output
+### 5. Validation & Output
 
 Ensure the review output includes:
 - All 6 expert reviews (in parallel, each with complete analysis framework)
-- Synthesized round table discussion highlighting key debates
-- Comprehensive review report with prioritized, actionable recommendations
+- Synthesized round table discussion (only if there are cross-cutting issues requiring multi-expert analysis)
+- Overall assessment with quality scores
 - Confirmation that report has been saved to file
 
-### 7. Completion Report
+### 6. Completion Report
 
-Output final summary:
-- Number of experts consulted: 6
-- Code scope reviewed (components, hooks, utilities, styles, tests, security)
-- Review dimensions covered: 10 (Component Architecture, Design Patterns, Hooks, State Management, TypeScript Types, Performance, CSS Architecture, Testing Quality, Clean Code, Security, Accessibility)
-- Total issues found by priority (Critical/High/Medium/Low)
-- Security vulnerabilities detected (if any)
-- Test coverage analysis (if applicable)
-- CSS architecture assessment (if applicable)
-- Clean code compliance status
-- Recommended improvements with priority levels (in task list format)
-- Report file location
-- Suggested next actions
+Output a brief final summary to the user (console/chat only, NOT in the saved report file):
+- Total issues found by priority (🔴 X Critical | 🟠 X High | 🟡 X Medium | 🟢 X Low)
+- Report file location: `.specify/reviews/code-review-{name}-{timestamp}.md`
+- Top 3 most critical issues to address first
 
 ---
 
@@ -384,25 +309,64 @@ Output final summary:
 
 ---
 
+## Issues Identified Output Example
+
+**🚨 CRITICAL OUTPUT RULE**: All code examples must be CONCISE (5-15 lines max). Show ONLY problematic code + key fix. Use `// ... (rest of code)` for omitted sections. This prevents oversized report files and save failures.
+
+Here's an example of the correct issue format:
+
+````markdown
+## 🎯 Agent Name
+
+**Lead Reviewer**: Component Architecture & Design Patterns Expert
+**Review Philosophy**: "Great components are simple, focused, composable, and easy to test"
+
+### 🔍 Issues Identified
+
+- [ ] **[Unnecessary Re-renders]**: visibleColumns recalculated on every render without memoization
+  - **Code Location**: `CTableBody.tsx:108-115`
+  - **Priority**: High
+  - **Problematic Code with Inline Improvement Guidance**:
+  
+  ```typescript
+
+  // ❌ ISSUE: visibleColumns is filtered on every render, causing unnecessary recalculations
+  const CTableBody = ({ columns, data, ...props }) => {
+    const visibleColumns = columns.filter(col => col.visible !== false); // Recalculated every render!
+    // ... (rest of component)
+  };
+  
+  // ✅ BETTER APPROACH: Use useMemo to cache the filtered columns
+  const CTableBody = ({ columns, data, ...props }) => {
+    const visibleColumns = useMemo(
+      () => columns.filter(col => col.visible !== false),
+      [columns] // Only recalculate when columns change
+    );
+    // ... (rest of component)
+  };
+
+  ```
+---
+
+````
+
+---
+
 ## Behavior Rules
 
 - **Parallel Execution**: All 6 Sub Agents MUST execute reviews simultaneously for efficiency
-- **Language**: Always think in **English**, output in **English**
+- **Language**: Always think in **English**, output in user-specified language (default: English)
 - **Task List Format**: All issues MUST be formatted as markdown task lists using `- [ ]` checkbox syntax for easy tracking
 - **Report Persistence**: MUST save the complete review report to `.specify/reviews/code-review-{name}-{timestamp}.md` using the `write` tool
 - **Code Context**: Use appropriate tools (read_file, grep, codebase_search) to gather full context before review
 - **No Code Modification**: This is a REVIEW command - analyze and recommend but do not modify source code files unless explicitly requested by user
 - **Evidence-Based**: Ground all expert opinions in actual code evidence
-- **Problematic Code Requirement**: ⚠️ **CRITICAL** - Every issue identified MUST include the "Problematic Code" section with actual code snippets. This is essential evidence for review quality. Never skip this section - if there's no problematic code to show, the issue may not be valid.
-- **Code Evidence Quality**: Each "Problematic Code" snippet must include sufficient context (minimum 3-5 lines) to understand the issue. Include surrounding code, imports, or dependencies if needed for clarity.
+- **No Meta Information in Reports**: Do NOT include meta descriptions like "Key Improvements", "Benefits", "Implementation Details", "Quality Gates", or explanatory sections about the review process itself. Reports should contain ONLY: Overall Assessment, Expert Reviews (Issues Identified), and Round Table Discussion (if needed)
 - **Unique Perspectives**: Each expert maintains their distinct professional viewpoint and review style
-- **Priority-Driven**: Each expert must clearly indicate issue priority (Critical/High/Medium/Low)
-- **Actionable Recommendations**: Final recommendations emphasize **implementability** and balance design purity with engineering pragmatism
 - **Best Practices**: Follow official React documentation and TypeScript handbook
-- **Modern Patterns**: Prefer Hooks and functional components over class components
 - **TypeScript Strict Mode**: Compliance is expected
-- **File Confirmation**: Always confirm to user the full path where the review report has been saved
-- **Constitution Reference**: If `.specify/memory/constitution.md` exists, reference it for principle validation
+- **Constitution Reference**: If `.specify.specify/memory/constitution.md` exists, reference it for principle validation
+- **🚨 CONCISE CODE EXAMPLES**: All code examples MUST be 5-15 lines max. Show ONLY problematic code + key fix. Use `// ... (rest of code)` for omitted sections. This prevents report file save failures.
 
 ---
 
@@ -424,7 +388,3 @@ Please describe your frontend code review request in `$ARGUMENTS`, including:
 - **Review scope** (full review, focused review, security audit, testing audit, performance audit, accessibility audit, CSS review, etc.)
 
 Context for frontend code review: $ARGUMENTS
-
-
-
-

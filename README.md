@@ -299,6 +299,9 @@ If you encounter issues with an agent, please open an issue so we can refine the
 ## 📖 Learn more
 
 - **[Complete Spec-Driven Development Methodology](./spec-driven.md)** - Deep dive into the full process
+- **[Code Review Tutorial](./docs/code-review-tutorial.md)** - Complete guide to AI-assisted code review
+- **[Code Review Tutorial (中文)](./docs/code-review-tutorial-zh.md)** - AI 辅助代码审查完整教程
+- **[Code Review Quick Reference](./docs/code-review-quick-reference.md)** - Quick reference for code review commands
 - **[Detailed Walkthrough](#-detailed-process)** - Step-by-step implementation guide
 
 ---

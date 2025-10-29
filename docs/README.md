@@ -26,6 +26,10 @@ To build the documentation locally:
 - `toc.yml` - Table of contents configuration
 - `installation.md` - Installation guide
 - `quickstart.md` - Quick start guide
+- `local-development.md` - Local development guide
+- `code-review-tutorial.md` - Complete AI-assisted code review tutorial
+- `code-review-tutorial-zh.md` - Complete AI-assisted code review tutorial (Chinese)
+- `code-review-quick-reference.md` - Quick reference for code review commands
 - `_site/` - Generated documentation output (ignored by git)
 
 ## Deployment

@@ -7,6 +7,24 @@ All notable changes to the Specify CLI and templates are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.27] - 2025-10-29
+
+### Added
+
+- **Code Review Framework Expansion**: Added comprehensive language-specific code review commands:
+  - New `/speckit.codereview-java` command for Java-specific code review with 8 specialized experts
+  - New `/speckit.codereview-python` command for Python-specific code review with 8 specialized experts
+  - New `/speckit.codereview-summary` command for generating executive summaries from multi-file code review sessions
+- **Documentation**: Added comprehensive code review tutorials and quick references:
+  - `docs/code-review-tutorial.md` - Complete guide on using the code review system
+  - `docs/code-review-tutorial-zh.md` - Chinese version of the code review tutorial
+  - `docs/code-review-quick-reference.md` - Quick reference for code review commands
+
+### Changed
+
+- Removed deprecated `/speckit.codereview` general command (replaced by language-specific variants)
+- Updated documentation table of contents to include new code review guides
+
 ## [0.0.26] - 2025-10-28
 
 ### Enhanced

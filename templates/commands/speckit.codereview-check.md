@@ -1,5 +1,5 @@
 ---
-description: Validate checked issues from code review reports, discover similar patterns across the codebase, and generate a comprehensive problem analysis document with concrete solutions.
+description: Validate checked issues from code review reports, discover similar patterns across the codebase, and generate a validation report with pattern analysis.
 ---
 
 ## User Input
@@ -21,122 +21,101 @@ You **MUST** consider the user input before proceeding (if not empty).
 3. **Verify Issues**: For each checked issue:
    - Read target code with `read_file`
    - Confirm issue exists in current codebase
-   - Assess severity (✅ Valid / ⚠️ Partially Valid / ❌ Invalid / 🔄 Modified)
-   - Collect concrete code evidence with context
+   - Assess validity (✅ Valid / ⚠️ Partially Valid / ❌ Invalid / 🔄 Modified)
+   - Document validation reason
 
 4. **Discover Patterns**: For each validated issue, search codebase for similar instances:
    - Use `grep` for exact patterns (e.g., `: any`, `except:`, raw types)
    - Use `codebase_search` for semantic patterns (e.g., "large functions", "duplicated code")
+   - Record code location, line numbers, and problematic code for each pattern
    - Prioritize patterns appearing 3+ times
-   - Adapt search strategies by language (see search strategies below)
 
-5. **Generate Report**: For each verified issue, create problem analysis with:
-   - Problem code with context
-   - Detailed description and impact
-   - 3-5 additional examples found
-   - Concrete, implementable solution
-   - Implementation steps
-   - Impact analysis (files affected, effort, risk, benefits)
-
-6. **Save Report**: Write to `.specify/reviews/codereview-check-{name}-{timestamp}.md` with:
+5. **Generate Report and Save**: Write to `.specify/reviews/codereview-check-{name}-{timestamp}.md` with:
    - Header: source review, statistics, languages detected
-   - Problem sections (ordered by priority)
-   - Summary: issues by priority, total impact, action plan, next steps
-
-7. **Output Summary**: Report completion with statistics and recommended actions
+   - Each issue with: validation status, validation reason, similar patterns found
 
 ## Report Structure
 
 ```markdown
-# {Component/Module Name} - Problem Analysis Report
+# {Component/Module Name} - Code Review Validation Report
 
-**Generated**: {timestamp}
-**Source Review**: `.specify/reviews/{original-filename}`
-**Languages**: {detected languages}
-**Valid Issues**: {count} / {total checked}
-**Similar Patterns**: {count} additional instances
-
----
-
-## Problem {N}: {Issue Title}
-
-**File:** `{filepath}` (Lines {start}-{end})  
-**Language:** {language}
-
-**Problem Code:**
-```{language}
-{actual code with context}
-```
-
-**Problem Description:**
-{Impact on quality/maintainability/performance/security}
-
-**Additional Examples:**
-1. `{file}` - Lines {start}-{end}: {brief description}
-2. `{file}` - Lines {start}-{end}: {brief description}
-3. `{file}` - Lines {start}-{end}: {brief description}
-
-**Solution:**
-```{language}
-{implementable solution}
-```
-
-**Solution Explanation:**
-{Why this solves the problem, benefits, trade-offs}
-
-**Implementation Steps:**
-1. {step}
-2. {step}
-3. {step}
-
-**Impact:**
-- Files Affected: {count}
-- Estimated Effort: {time}
-- Risk Level: {Low/Medium/High}
-- Benefits: {concrete benefits}
+| Item | Details |
+|------|---------|
+| **Generated** | {timestamp} |
+| **Source Review** | `.specify/reviews/{original-filename}` |
+| **Languages** | {detected languages} |
+| **Total Issues** | {count} |
 
 ---
 
-## Summary
+## 🔍 Validation Results
 
-### Issues by Priority
-**🔴 Critical**: {count} - {list}
-**🟠 High**: {count} - {list}
-**🟡 Medium**: {count} - {list}
-**🟢 Low**: {count} - {list}
+### Issue 1️⃣ {Issue Title}
 
-### Total Impact
-- Files Requiring Changes: {count}
-- Lines Affected: ~{count}
-- Estimated Effort: {time}
+**Status**: {✅ Valid / ⚠️ Partially Valid / ❌ Invalid / 🔄 Modified} · 
+**Validation Reason**: {detailed explanation of why this issue is valid/invalid/modified}
 
-### Action Plan
-1. **Phase 1 (Critical)**: {recommendation}
-2. **Phase 2 (High)**: {recommendation}
-3. **Phase 3 (Medium)**: {recommendation}
-4. **Phase 4 (Low)**: {recommendation}
+**Similar Pattern Search**:
 
-### Next Steps
-- [ ] Review report with team
-- [ ] Prioritize by business impact
-- [ ] Create implementation tasks
-- [ ] Assign phase owners
-- [ ] Schedule code review sessions
+**Similar Issue 1: {Issue Title}**
+**Location**: `{filepath}`  
+**Lines**: {line-start}-{line-end}
+
+```language
+{problematic code snippet}
+```
+
+**Description**: {问题描述}
+
+** Similar Issue 2: {Issue Title} **
+
+**Location**: `{filepath}`  
+**Lines**: {line-start}-{line-end}
+
+```language
+{problematic code snippet}
+```
+
+**Description**: {问题描述}
+
+
+---
+
+### Issue 2️⃣ {Issue Title}
+{follow same structure as Issue 1}
+
+---
+
+## 📊 Summary
+
+| Metric | Value |
+|--------|-------|
+| Total Issues | {count} |
+| Verified ✅ | {valid_count} |
+| Partially Valid ⚠️ | {partial_count} |
+| Fixed ❌ | {invalid_count} |
+| Similar Patterns Found | {total_patterns} |
 ```
 
 ## Behavior Rules
 
 - **Multi-Language Support**: Auto-detect Python, Java, TypeScript, JavaScript, Go, C#, Ruby, Rust, C++, PHP, Kotlin
-- **Evidence-Based**: Only include verified issues from actual codebase
-- **Concrete Examples**: Real code snippets, not hypothetical
-- **Pattern Focus**: Prioritize patterns appearing 3+ times
-- **Solution-Oriented**: Every problem needs concrete, language-appropriate solution
-- **Context Preservation**: Include 5-10 lines before/after in examples
-- **Report Persistence**: MUST save to `.specify/reviews/codereview-check-{name}-{timestamp}.md`
-- **Verification Accuracy**: Mark Invalid if issue fixed or doesn't exist
-- **No Code Modification**: Analysis only - do not modify source files
-- **Deduplication**: Avoid listing same location multiple times
-- **Language-Aware**: Follow language-specific best practices in solutions
+- **Evidence-Based Verification**: Only include verified issues with actual code references from the current codebase
+- **Pattern Discovery**: Search for similar patterns across the codebase with exact code locations and line numbers
+- **Pattern Prioritization**: Prioritize patterns appearing 3+ times, highlight when no patterns found
+- **Metadata Required**: For each issue include: status, priority, category (Design/API/Documentation/Performance/Security/etc.)
+- **Code References**: Use format `{line-start}:{line-end}:{filepath}` for precise code location tracking
+- **Status Indicators**: Use visual markers for quick scanning
+  - ✅ Valid: Issue confirmed in current codebase
+  - ⚠️ Partially Valid: Issue exists with modifications or mixed findings
+  - ❌ Invalid: Issue fixed or doesn't exist
+  - 🔄 Modified: Code changed but concern may still apply
+- **Summary Statistics**: Include validation counts and priority breakdown in final summary table
+- **Report Persistence**: MUST save to `.specify/reviews/codereview-check-{component-name}-{timestamp}.md`
+- **No Code Modification**: Analysis and validation only - do not modify source files
+- **Deduplication**: Avoid listing same location multiple times in similar patterns
+- **Visual Hierarchy**: Use emoji numbering (1️⃣ 2️⃣ 3️⃣) and markdown tables for clarity
+- **🚨 CONCISE CODE SNIPPETS**: All code snippets MUST be 5-15 lines max. Show only the problematic section. Use `// ... (rest of code)` or `# ... (rest of code)` for omitted sections. This prevents oversized report files.
 
 ---
 
