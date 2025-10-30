@@ -7,6 +7,16 @@ All notable changes to the Specify CLI and templates are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.28] - 2025-10-30
+
+### Added
+
+- **Vue 2.7 Code Review Support**: New `/speckit.codereview-vue2` command for comprehensive Vue 2.7 frontend code review with 6 specialized experts analyzing component architecture, Composition API/Options API patterns, state management (Vuex/Pinia), performance optimization, testing quality, security vulnerabilities, accessibility, and CSS architecture.
+
+### Enhanced
+
+- **Discussion Command Optimization**: Improved `/speckit.discussion` command with dynamic expert selection (2-8 experts based on problem complexity), complexity assessment system, and streamlined round table discussion format. Now includes transparent expert selection rationale and optimized for simple (2-3 experts), medium (4-5 experts), and complex (6-8 experts) technical problems.
+
 ## [0.0.27] - 2025-10-29
 
 ### Added
