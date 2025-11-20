@@ -1070,6 +1070,7 @@ def init(
         f"○ [cyan]/speckit.checklist[/] [bright_black](optional)[/bright_black] - Generate quality checklists to validate requirements completeness, clarity, and consistency (after [cyan]/speckit.plan[/])",
         f"○ [cyan]/speckit.discussion[/] [bright_black](optional)[/bright_black] - Orchestrate collaborative technical discussion with 8 legendary tech experts to analyze code, architecture, and design decisions",
         f"○ [cyan]/speckit.codereview[/] [bright_black](optional)[/bright_black] - Orchestrate comprehensive code review with 8 specialized code review experts to analyze code quality and best practices",
+        f"○ [cyan]/speckit.codereview-pr[/] [bright_black](optional)[/bright_black] - Comprehensive PR review combining Linear requirements and GitHub diffs",
         f"○ [cyan]/speckit.unittest-java[/] [bright_black](optional)[/bright_black] - Generate method-level JUnit 5 tests via an eight-step disciplined workflow"
     ]
     enhancements_panel = Panel("\n".join(enhancement_lines), title="Enhancement Commands", border_style="cyan", padding=(1,2))

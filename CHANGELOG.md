@@ -7,6 +7,12 @@ All notable changes to the Specify CLI and templates are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.30] - 2025-11-20
+
+### Added
+
+- **Code Review PR Support**: New `/speckit.codereview-pr` command that orchestrates comprehensive code reviews by combining Linear issue requirements with GitHub Pull Request diffs.
+
 ## [0.0.29] - 2025-10-31
 
 ### Changed
