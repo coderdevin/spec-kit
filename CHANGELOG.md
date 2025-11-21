@@ -7,6 +7,13 @@ All notable changes to the Specify CLI and templates are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.31] - 2025-11-21
+
+### Enhanced
+
+- **Code Review PR Command Optimization**: Refactored `/speckit.codereview-pr` command template for better token efficiency, stricter output formatting (3-section report), and consolidated role definitions.
+- **Daily Plan Merge Improvement**: Enhanced `/speckit.daily-plan-merge` with smarter task deduplication logic that normalizes text and consolidates similar tasks from different models.
+
 ## [0.0.30] - 2025-11-20
 
 ### Added

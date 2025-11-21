@@ -43,9 +43,10 @@ Store as `$TODAY` (format: `YYYY-MM-DD`, e.g., `2025-11-05`)
 - Preserve task metadata (priority level, context)
 
 **Aggregation**:
-- Merge selected tasks from all model versions
-- Remove duplicates (same task checked in multiple models)
-- Maintain original priority categorization
+ - Normalize task text (trim whitespace, collapse multiple spaces, ignore case) to generate a deduplication key
+ - Merge selected tasks from all model versions using the deduplication key
+ - When tasks have the same goal but slightly different wording, consolidate into a single entry using the clearest phrasing and note all contributing models
+ - Maintain original priority categorization for the merged task
 - This creates a "best of all models" finalized plan
 
 ### 3. Generate Finalized Plan with Time Schedule

@@ -1,98 +1,97 @@
 ---
-description: Orchestrate PR code review using Linear issue context and GitHub diffs. Analyzes requirements, implementation, quality, and security.
+description: PR code review using Linear context and GitHub diffs. Check requirements, implementation, quality, security.
 ---
-
-The user input to you can be provided directly by the agent or as a command argument - you **MUST** consider it before proceeding with the prompt (if not empty).
 
 User input:
 
 $ARGUMENTS
 
-Goal: Perform a high-quality code review by combining precise requirements from Linear with actual code changes from GitHub.
+Goal: Review code by combining Linear requirements with GitHub changes.
 
-**Applicable Scenarios**: PR Review, Feature Verification, Bug Fix Verification, Code Quality Audit.
-
----
-
-## Orchestration Agent - PR Review Coordinator
-
-### Role Definition
-You coordinate the PR review process. You fetch context from Linear and GitHub (handling multiple PRs if needed), then orchestrate specialized agents to verify business logic, code quality, and security.
-
-### Core Responsibilities
-1. **Fetch Context**: Get issue details from Linear and PR details/diff from GitHub.
-2. **Verify Requirements**: Ensure code matches the business need described in the issue.
-3. **Check Quality**: Review code standards, design (SRP), and error handling.
-4. **Assess Risks**: Identify performance and security issues.
-5. **Report & Save**: Generate a clear, actionable review summary and save it to a file.
+**Scenarios**: PR Review, Feature Verification, Bug Fix Verification, Code Quality Audit.
 
 ---
 
-## Execution Steps
+## PR Review Coordinator
 
-### 1. Context Acquisition
+### Role
+Coordinate PR review. Fetch Linear and GitHub context (multiple PRs supported). Verify business logic, code quality, security.
 
-Parse `$ARGUMENTS` to find the Linear Issue Link (or ID) and **one or more** GitHub PR Links (or numbers).
+### Responsibilities
+1. **Fetch Context**: Get issue from Linear, PR details/diff from GitHub.
+2. **Verify Requirements**: Check code matches issue requirements.
+3. **Check Quality**: Review clean code standards, code design (SRP), error handling.
+4. **Assess Risks**: Find performance and security issues.
+5. **Report & Save**: Generate review, save to file.
 
-1.  **Linear Context**:
-    - Extract Issue ID from link or arguments.
-    - Call `mcp_linear_get_issue` to get title, description, and status.
-    - Call `mcp_linear_list_comments` to get recent discussions/decisions.
+---
+
+## Steps
+
+### 1. Get Context
+
+Parse `$ARGUMENTS` for Linear Issue Link (or ID) and GitHub PR Links (or numbers).
+
+1.  **Linear**:
+    - Extract Issue ID.
+    - Call `mcp_linear_get_issue` for title, description, status.
+    - Call `mcp_linear_list_comments` for discussions.
     
-2.  **GitHub Context**:
-    - Extract Owner, Repo, and PR Numbers from links.
-    - **Multiple PRs**: If multiple PRs are provided, process them in order of PR number (ascending) to understand the evolution of the code.
-    - **For EACH PR**:
-        - Call `mcp_github_pull_request_read` (method='get') for PR metadata.
-        - Call `mcp_github_pull_request_read` (method='get_diff') for code changes.
+2.  **GitHub**:
+    - Extract Owner, Repo, PR Numbers.
+    - Multiple PRs: Process by PR number (ascending) to track code evolution.
+    - For each PR:
+        - Call `mcp_github_pull_request_read` (method='get') for metadata.
+        - Call `mcp_github_pull_request_read` (method='get_diff') for changes.
     
-3.  **Codebase Context** (Optional):
-    - If the diff refers to existing files that need more context, use `read_file` or `codebase_search`.
+3.  **Codebase** (if needed):
+    - Use `read_file` or `codebase_search` for additional context.
 
-**CRITICAL**: If you cannot successfully retrieve EITHER the Linear issue content OR the GitHub PR diffs (due to invalid links, missing auth, or tools failing), **STOP IMMEDIATELY**. Do not proceed with the review. Ask the user to provide valid links or paste the content directly.
+**STOP if you can't retrieve Linear issue OR GitHub PR diffs**. Invalid links, missing auth, or tool failures mean stop. Ask user for valid links or paste content.
 
-### 2. Parallel Expert Review
+### 2. Expert Analysis
 
-Activate Sub Agents to analyze the gathered context (aggregating all PR diffs).
+Use these perspectives internally. These are analysis tools, not output sections. Synthesize findings into 3-section report.
 
-#### Sub Agent 1: Business Logic & Requirements Expert
+#### Business Logic & Requirements
+- **Requirement Coverage**: Does code solve the problem?
+- **Bug Detection**: Find logical errors, edge cases, wrong assumptions.
+- **Implementation**: Does logic match the feature?
 
-**Goal**: Verify the code implements the requirements and has no functional bugs.
+#### Code Quality & Standards
+- **Design (SRP)**: One purpose per class/function.
+- **Error Handling**: Expected failures are data, not exceptions.
+    - Exceptions: System failures only (DB loss, network fail, programming errors).
+    - Business failures: Return explicit data (Result/Either, Optional, domain objects).
+- **Style**: Naming, formatting, readability.
 
-**Focus Areas**:
-- **Requirement Coverage**: Compare the aggregated code diffs against the Linear issue description. Does it solve the problem?
-- **Bug Detection**: Look for logical errors, missed edge cases, or incorrect assumptions.
-- **Implementation Correctness**: Does the logic make sense for the described feature?
+#### Performance & Security
+- **Performance**: N+1 queries, slow loops, leaks, complexity.
+- **Security**: Injection, auth, sensitive data, dependencies.
 
-#### Sub Agent 2: Code Quality & Standards Expert
+### 3. Report
 
-**Goal**: Ensure code is maintainable, readable, and follows conventions.
+Combine findings into report. Save to file.
 
-**Focus Areas**:
-- **Design (SRP)**: Single Responsibility Principle is the core. Classes and functions must have one clear purpose.
-- **Error Handling**: Follow the principle "**Expected failures are data, not exceptions**".
-    - **Exceptions**: Strictly reserved for unexpected system-level failures (e.g., database connection loss, network interruption, programming errors).
-    - **Business Failures**: Invalid input, insufficient permissions, or rule violations must be handled as explicit return data (Result/Either types, Optional, domain-specific result objects).
-- **Style**: Naming conventions, formatting, readability.
+**OUTPUT RULE**: Report contains 3 sections only:
+1. **Requirement Verification**
+2. **Issues Identified** 
+3. **Conclusion**
 
-#### Sub Agent 3: Performance & Security Expert
+Do not output:
+- Code Quality Assessment
+- Analysis by Expert Role
+- Summary
+- Recommendations
+- Suggestions
+- Other sections
 
-**Goal**: Identify non-functional risks.
+1.  **File Path**:
+    - Directory: `.specify/codereview/`
+    - Check if directory exists. Create if missing.
+    - Filename: `.specify/codereview/<LINEAR_ISSUE_ID>.md` (e.g., `.specify/codereview/ENG-123.md`).
 
-**Focus Areas**:
-- **Performance**: N+1 queries, inefficient loops, resource leaks, unnecessary complexity.
-- **Security**: Injection risks, auth checks, sensitive data handling, dependency vulnerabilities.
-
-### 3. Synthesis & Reporting
-
-Combine findings into a structured report and **save it to a file**.
-
-1.  **Prepare File Path**:
-    - Target directory: `.specify/codereview/`
-    - Check if the directory exists using `list_dir` (or similar check). If it does not exist, create it.
-    - Target filename: `.specify/codereview/<LINEAR_ISSUE_ID>.md` (e.g., `.specify/codereview/ENG-123.md`).
-
-2.  **Generate Report Content**:
+2.  **Report Content**:
 
 ```markdown
 # PR Review Report
@@ -103,46 +102,58 @@ Combine findings into a structured report and **save it to a file**.
 - ...
 
 ## Requirement Verification
-- [ ] **[Requirement Summary]**: Note on implementation status/correctness.
-- [ ] **[Requirement Summary]**: Note on implementation status/correctness.
+- [ ] **[Requirement]**: Implementation status/correctness.
+- [ ] **[Requirement]**: Implementation status/correctness.
 
 ## Issues Identified
 
 ### Critical / High
-- [ ] **[Issue Name]**: Description.
+- [ ] **[Issue]**: Description.
   - **Location**: `file:line`
   - **Problematic Code**:
     ```language
-    // Code causing the issue,keep them short (5-15 lines), issue code desc with comment.
+    // Code with issue (5-15 lines)
     ```
-  - **Suggested Fix** (Optional):
+  - **Fix** (optional):
     ```language
-    // Short fix example
+    // Fix example
     ```
 
 ### Medium / Low
-- [ ] **[Issue Name]**: Description.
+- [ ] **[Issue]**: Description.
   - **Location**: `file:line`
   - **Problematic Code**:
     ```language
-    // Code causing the issue,keep them short (5-15 lines), issue code desc with comment.
+    // Code with issue (5-15 lines)
     ```
-  - **Suggested Fix** (Optional):
+  - **Fix** (optional):
     ```language
-    // Short fix example
+    // Fix example
     ```
+
+## Conclusion
+
+[Review summary]
+
+**Code Quality**: Good / Acceptable / Poor
+
+**Requirement Coverage**: Complete / Partial / Incomplete
+
+**Risk Level**: Low / Medium / High
 ```
 
-3.  **Save**: Use the `write` tool to save the markdown content to the calculated filepath (`.specify/codereview/<issue_id>.md`).
+3.  **Save**: Use `write` tool to save to `.specify/codereview/<issue_id>.md`.
 
 ---
 
-## Behavior Rules
+## Rules
 
-- **Directness**: Be concise. No fluff. No "Suggestions" section. No emojis.
+- **Format**: 3 sections only: (1) Requirement Verification, (2) Issues Identified, (3) Conclusion. Never add other sections.
+- **Directness**: Concise. No fluff.
 - **Evidence**: Quote code or requirements.
-- **Context**: Use the fetched Linear and GitHub data as the ground truth.
-- **Code Examples**: Keep them short (5-15 lines). MUST include the problematic code.
-- **Tone**: Professional, objective, direct.
-- **Tools**: Use available MCP tools for Linear and GitHub.
-- **Output**: **ALWAYS** save the report to the file. Do not just print it to chat.
+- **Context**: Use Linear and GitHub data as truth.
+- **Code Examples**: Short (5-15 lines). Include problematic code.
+- **Tone**: Direct.
+- **Tools**: Use MCP tools for Linear and GitHub.
+- **Output**: Save to file. Not to chat.
+- **Analysis**: Use expert perspectives internally. Report contains 3 sections only.
